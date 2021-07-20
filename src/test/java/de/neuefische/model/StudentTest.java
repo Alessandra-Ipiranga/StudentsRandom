@@ -21,37 +21,62 @@ public class StudentTest {
     }
 
     @Test
-    @DisplayName("Age cannot be negative!")
-    public void ageTest() {
+    @DisplayName("Check if id can be set and get")
+    public void idTest() {
         //GIVEN
-        int age = -42;
+        int id = -42;
         //WHEN
         Student student = new Student();
-        student.setAge(age);
-        int actual = student.getAge();
+        student.setId(id);
+        int actual = student.getId();
         //THEN
-        assertEquals(age, actual);
+        assertEquals(id, actual);
     }
 
     @Test
-    @DisplayName("Matriukations numere cannot be empty!")
-    public void matriculationNumberTest() {
+    @DisplayName("Check if methode returns students array")
+    public void listTest() {
         //GIVEN
-        String matricultionNumber = "";
+        Student student1 = new Student("Peter", 123);
+        Student student2 = new Student("Paul", 456);
+
+        Student[] students = {
+                student1,
+                student2
+        };
+
         //WHEN
-        Student student = new Student();
-        student.setMatricutionNumber(matricultionNumber);
-        String actual = student.getMatriculationNumber();
+        StudentDB studentDB = new StudentDB(students);
+        Student[] actual = studentDB.list();
+
         //THEN
-        assertEquals(matricultionNumber, actual);
+        assertEquals(students, actual);
+    }
+
+    @Test
+    @DisplayName("Check if methode returns students array")
+    public void toStringTest() {
+        //GIVEN
+        Student student1 = new Student("Peter", 123);
+        Student student2 = new Student("Paul", 456);
+        Student[] students = {
+                student1,
+                student2
+        };
+        String expected = "Name: Peter, id: 123\nName: Paul, id: 456\n";
+        //WHEN
+        StudentDB studentDB = new StudentDB(students);
+        String actual = studentDB.toString();
+        //THEN
+        assertEquals(expected, actual);
     }
 
     @Test
     @DisplayName("Students with the same name are equal")
     public void studentsAreEqualTest() {
         //GIVEN
-        Student student = new Student("Jonas", 24, "957864");
-        Student student1 = new Student("Jonas", 24, "957864");
+        Student student = new Student("Jonas", 24);
+        Student student1 = new Student("Jonas", 24);
         //WHEN
         boolean actual = student.equals(student1);
         //THEN
@@ -63,8 +88,8 @@ public class StudentTest {
     @DisplayName("Students with different name are not equal")
     public void studentsAreDefferentTest() {
         //GIVEN
-        Student student = new Student("Jonas", 24, "957864");
-        Student student1 = new Student("Peter", 24, "957864");
+        Student student = new Student("Jonas", 24);
+        Student student1 = new Student("Peter", 24);
         //WHEN
         boolean actual = student.equals(student1);
         //THEN

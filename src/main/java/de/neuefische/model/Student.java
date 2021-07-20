@@ -4,35 +4,28 @@ import java.util.Objects;
 
 public class Student {
 
-    private int age = 24;
+    private int id = 24;
     private String name = "Peter";
-    private String matricultionNumber = "212727";
+
 
     public Student() {
 
     }
 
-    public Student(String name, int age, String matriculationNumb) {
+    public Student(String name, int id) {
         this.name = name;
-        this.age = age;
-        this.matricultionNumber = matriculationNumb;
+        this.id = id;
     }
 
-    public void setMatricutionNumber(String matricultionNumber) {
-        this.matricultionNumber = matricultionNumber;
+
+    public int getId() {
+        return id;
     }
 
-    public int getAge() {
-        return age;
+    public int setId(int id) {
+        return this.id = id;
     }
 
-    public int setAge(int age) {
-        return this.age = age;
-    }
-
-    public String getMatriculationNumber() {
-        return matricultionNumber;
-    }
 
 
     public String getName() {
@@ -59,9 +52,8 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" +
-                "age=" + getAge() +
+                "id=" + getId() +
                 ", name='" + getName() + '\'' +
-                ", matricultionNumber='" + getMatriculationNumber() + '\'' +
                 '}';
     }
 

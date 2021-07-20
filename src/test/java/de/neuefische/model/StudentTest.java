@@ -96,4 +96,19 @@ public class StudentTest {
         assertFalse(actual);
     }
 
+    @Test
+    @DisplayName("Student Array add method")
+    public void testAddStudent(){
+        //GIVEN
+        Student student = new Student("Jonas", 24);
+        Student student1 = new Student("Peter", 25);
+        Student[] studentArray = {student , student1};
+        StudentDB studentDB = new StudentDB(studentArray);
+        Student student2 = new Student("Bob", 26);
+        Student[] expectedArray = {student,student1,student2};
+        //WHEN
+        Student[] actualArray = studentDB.add(student2);
+        //THEN
+        assertArrayEquals(expectedArray,actualArray);
+    }
 }

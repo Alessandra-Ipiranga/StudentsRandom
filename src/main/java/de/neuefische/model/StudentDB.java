@@ -1,6 +1,8 @@
 package de.neuefische.model;
 
-import java.util.Arrays;
+import java.util.*;
+import
+
 
 public class StudentDB {
     private Student[] students;
@@ -35,4 +37,25 @@ public class StudentDB {
         int randomNumber = (int)(Math.random() * arrayLength) ;
         return students[randomNumber];
     }
+    public Student[] add(Student student){
+        Student[] newArray = new Student[students.length +1];
+        for (int i = 0; i < students.length;i++){
+            newArray[i] = students[i];
+        }
+        newArray[students.length ] = student;
+        students = newArray;
+        return students;
+    }
+    public Student[] remove(Student student){
+        Student[] newArray = new Student[students.length - 1];
+        int j = 0;
+        for(int i = 0; i < students.length;i++){
+           if  (!students[i].equals(student)){
+               newArray[j] = students[i];
+               j++;
+            }
+        }
+        return newArray;
+    }
+
 }

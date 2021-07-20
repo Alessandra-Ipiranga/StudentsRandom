@@ -30,4 +30,9 @@ public class StudentDB {
         }
         return result;
     }
+    public Student randomStudent(Student[] students){
+        int arrayLength = students.length;
+        int randomNumber = (int)(Math.random() * arrayLength) + 1;
+        return students[0];
+    }
 }

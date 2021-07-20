@@ -1,8 +1,5 @@
 package de.neuefische.model;
 
-import java.util.*;
-import
-
 
 public class StudentDB {
     private Student[] students;

@@ -32,7 +32,7 @@ public class StudentDB {
     }
     public Student randomStudent(Student[] students){
         int arrayLength = students.length;
-        int randomNumber = (int)(Math.random() * arrayLength) + 1;
-        return students[0];
+        int randomNumber = (int)(Math.random() * arrayLength) ;
+        return students[randomNumber];
     }
 }

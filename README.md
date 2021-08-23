@@ -11,3 +11,5 @@ Die Methode randomStudent() gibt einen zufälligen Studenten zurück (Nutze für
 Schreibe für alle Methoden Tests (bis auf randomStudent() )
 
 Bonus: Schreibe eine add und eine remove Methode, um Studenten hinzuzufügen und zu entfernen
+
+"Hallo Leute"
